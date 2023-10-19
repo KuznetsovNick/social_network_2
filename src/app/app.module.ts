@@ -1,16 +1,34 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FriendsComponent} from "./components/friends/friends.component";
+import {MenuComponent} from "./components/menu/menu.component";
+import {RouterModule, Routes} from "@angular/router";
+import {EnteringComponent} from "./components/entering/entering.component";
+import { ProfileComponent } from './profile/profile.component';
+import { NewsComponent } from './components/news/news.component';
+
+const appRoutes: Routes = [
+  {path: '', component: EnteringComponent},
+  {path: 'menu', component: MenuComponent},
+  {path: 'friends', component: FriendsComponent},
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FriendsComponent,
+    MenuComponent,
+    EnteringComponent,
+    ProfileComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
