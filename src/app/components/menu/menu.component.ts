@@ -23,4 +23,12 @@ export class MenuComponent{
   open_friends(){
     this.router.navigate(["friends"]).then(res => {})
   }
+
+  open_profile(){
+    this.router.navigate(["profile"]).then(res => {})
+  }
+
+  open_news(){
+    this.router.navigate(["news"]).then(res => {})
+  }
 }

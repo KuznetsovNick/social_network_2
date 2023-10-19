@@ -19,11 +19,22 @@ export class EnteringComponent {
   login(){
     let input = <HTMLInputElement>document.getElementById("enter_id")
     if(input) {
-      let id:number = +input.value
-      this.request.getUser(id).subscribe(user => {
-        this.user = user
-        localStorage.setItem("user", JSON.stringify(user))
-      })
+      if(input.value) {
+        let id: number = +input.value
+
+        this.request.getUser(id).subscribe(user => {
+          if(user) {
+            this.user = user
+            localStorage.setItem("user", JSON.stringify(user))
+            this.router.navigate(["menu"]).then(res => {})
+            return
+          } else{
+            alert("Invalid user")
+          }
+        })
+      }else {
+        alert("Invalid user")
+      }
     }
   }
 }

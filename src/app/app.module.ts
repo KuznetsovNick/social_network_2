@@ -7,13 +7,15 @@ import {FriendsComponent} from "./components/friends/friends.component";
 import {MenuComponent} from "./components/menu/menu.component";
 import {RouterModule, Routes} from "@angular/router";
 import {EnteringComponent} from "./components/entering/entering.component";
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { NewsComponent } from './components/news/news.component';
 
 const appRoutes: Routes = [
   {path: '', component: EnteringComponent},
   {path: 'menu', component: MenuComponent},
   {path: 'friends', component: FriendsComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'news', component: NewsComponent},
 ];
 
 @NgModule({

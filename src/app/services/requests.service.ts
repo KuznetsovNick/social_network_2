@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {User} from "../models/user";
 import {Observable} from "rxjs";
+import {News} from "../models/news";
 
 @Injectable({
   providedIn: "root"
@@ -19,5 +20,9 @@ export class RequestsService {
 
   getFriends(id: number): Observable<User[]> {
     return this.http.post<User[]>("https://localhost:8443/get_friends", {id: id})
+  }
+
+  getNews(id: number): Observable<News[]> {
+    return this.http.post<News[]>("https://localhost:8443/send_news", {id: id})
   }
 }
