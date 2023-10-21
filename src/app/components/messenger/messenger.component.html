@@ -1,0 +1,14 @@
+<div *ngIf="write_to">
+  <div *ngFor="let message of chat.messages">
+    {{JSON.stringify(message)}}
+  </div>
+  <input id="inp">
+  <button (click)="send_message()">send</button>
+  <button (click)="close_messenger()">Close</button>
+</div>
+
+<div *ngIf="!write_to">
+  <div *ngFor="let user of friends" (click)="select_chat(user.id)">
+    {{user.name}}
+  </div>
+</div>

@@ -2,9 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from "@angular/core";
 import {User} from "../../models/user";
 import {Router} from "@angular/router";
 import {RequestsService} from "../../services/requests.service";
-import {ShareService} from "../../services/share.service";
 import {Subscription} from "rxjs";
-import {ShareReqService} from "../../services/shareReq.service";
 
 @Component({
   selector: "app-menu",
@@ -31,4 +29,10 @@ export class MenuComponent{
   open_news(){
     this.router.navigate(["news"]).then(res => {})
   }
+
+  open_messenger(){
+    this.router.navigate(["messenger"]).then(res => {})
+  }
+
+  protected readonly document = document;
 }

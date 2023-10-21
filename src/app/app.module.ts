@@ -9,6 +9,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {EnteringComponent} from "./components/entering/entering.component";
 import { ProfileComponent } from './components/profile/profile.component';
 import { NewsComponent } from './components/news/news.component';
+import { MessengerComponent } from './components/messenger/messenger.component';
 
 const appRoutes: Routes = [
   {path: '', component: EnteringComponent},
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   {path: 'friends', component: FriendsComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'news', component: NewsComponent},
+  {path: 'messenger', component: MessengerComponent },
 ];
 
 @NgModule({
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     MenuComponent,
     EnteringComponent,
     ProfileComponent,
-    NewsComponent
+    NewsComponent,
+    MessengerComponent
   ],
   imports: [
     BrowserModule,

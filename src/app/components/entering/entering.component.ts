@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
 import {User} from "../../models/user";
 import {Router} from "@angular/router";
 import {RequestsService} from "../../services/requests.service";
-import {ShareService} from "../../services/share.service";
 
 @Component({
   selector: "app-entering",

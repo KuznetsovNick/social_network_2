@@ -6,4 +6,5 @@ export interface User {
   role: string,
   status: string,
   friends: number[]
+  img: boolean
 }
