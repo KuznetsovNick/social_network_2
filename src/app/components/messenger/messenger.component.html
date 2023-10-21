@@ -1,6 +1,8 @@
 <div *ngIf="write_to">
   <div *ngFor="let message of chat.messages">
     {{JSON.stringify(message)}}
+<!--    <h3>{{message.name}}</h3>-->
+<!--    <p>{{message.message}}</p>-->
   </div>
   <input id="inp">
   <button (click)="send_message()">send</button>

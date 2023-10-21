@@ -31,12 +31,16 @@ export class RequestsService {
   //   return this.http.post<File>("https://localhost:8443/send_image", {id: id})
   // }
 
-  getImage(id: number, imageType = 'image/pnh'){
+  getImage(id: number){
     let url = "https://localhost:8443/send_image"
     return this.http.post(url, {id: id},{responseType: 'arraybuffer'})
   };
 
-  getChat(chanel: string, imageType = 'image/pnh'){
+  getChat(chanel: string){
     return this.http.post<Chat>("https://localhost:8443/send_chat", {chanel: chanel})
+  };
+
+  addUser(user: User):Observable<any>{
+    return this.http.post("https://localhost:8443/add_user", user)
   };
 }

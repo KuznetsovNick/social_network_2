@@ -10,9 +10,30 @@ import {RequestsService} from "../../services/requests.service";
 
 export class EnteringComponent {
   user: User
+  is_register:boolean = false
   constructor(private request: RequestsService, private router: Router) {
   }
 
+  register(){
+    let user: User = {
+      //@ts-ignore
+      name: document.getElementById("name").value,
+      //@ts-ignore
+      bd: document.getElementById("date").value,
+      //@ts-ignore
+      email: document.getElementById("email").value,
+      id: -1,
+      status: "",
+      role: "",
+      friends: [],
+      img: false
+    }
+
+    this.request.addUser(user).subscribe((id) => {
+      alert(`Your id is ${id.id}`)
+      this.is_register = false
+    })
+  }
 
 
   login(){

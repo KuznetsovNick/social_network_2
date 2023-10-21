@@ -1,3 +1,13 @@
-<input id="enter_id" type="text" placeholder="enter your id here">
+<div *ngIf="!is_register">
+  <input id="enter_id" type="text" placeholder="enter your id here">
+  <button (click)="login()">Login</button>
+  <button (click)="is_register = true">Register</button>
+</div>
 
-<button (click)="login()">Login</button>
+<div *ngIf="is_register">
+  <input id="name"type="text" placeholder="name">
+  <input id="date" type="date">
+  <input id="email" type="email" placeholder="email">
+  <button (click)="register()">save</button>
+  <button (click)="is_register = false">close</button>
+</div>
