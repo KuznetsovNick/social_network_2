@@ -43,4 +43,8 @@ export class RequestsService {
   addUser(user: User):Observable<any>{
     return this.http.post("https://localhost:8443/add_user", user)
   };
+
+  deleteImg(id: number):Observable<any>{
+    return this.http.post("https://localhost:8443/delete_img", {id: id})
+  }
 }

@@ -1,4 +1,5 @@
-<button>add news</button>
+<input id="news" placeholder="What's new?">
+<button (click)="add_news()">add news</button>
 
 <div *ngFor="let n of news">
   <h3>{{n.name}}</h3>

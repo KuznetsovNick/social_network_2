@@ -20,12 +20,16 @@ export class MessengerComponent implements OnDestroy{
   user: User
   ev: string
   chat: Chat
+  //sound: any
 
   constructor(private router: Router,
               private request: RequestsService,
               private socketService: SocketIoService,) {
     //@ts-ignore
     this.user =  JSON.parse(localStorage.getItem("user"))
+
+    //this.sound = new Audio()
+    //this.sound.src = "../sounds/sound.mp3"
 
     request.getFriends(this.user.id).subscribe(friends => {
       this.friends = friends
@@ -42,6 +46,7 @@ export class MessengerComponent implements OnDestroy{
     }
     this.sub = this.socketService.listen_to_server(this.ev).subscribe((data) => {
       this.chat.messages.push(data)
+      //this.sound.play()
     })
     this.request.getChat(this.ev).subscribe((chat: Chat) => {
       this.chat = chat

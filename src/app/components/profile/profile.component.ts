@@ -33,4 +33,9 @@ export class ProfileComponent {
         new Blob([new Uint8Array(this.img).buffer], {type: 'image/png'}))
     }
   }
+
+  delete_img(){
+    this.request.deleteImg(this.user.id).subscribe((data) => {})
+    this.user.img = false
+  }
 }
