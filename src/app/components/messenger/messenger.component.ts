@@ -20,7 +20,7 @@ export class MessengerComponent implements OnDestroy{
   user: User
   ev: string
   chat: Chat
-  //sound: any
+  sound: any
 
   constructor(private router: Router,
               private request: RequestsService,
@@ -28,13 +28,15 @@ export class MessengerComponent implements OnDestroy{
     //@ts-ignore
     this.user =  JSON.parse(localStorage.getItem("user"))
 
-    //this.sound = new Audio()
-    //this.sound.src = "../sounds/sound.mp3"
+    request.getSound().subscribe(sound => {
+      this.sound = new Audio()
+      this.sound.src = URL.createObjectURL(
+        new Blob([new Uint8Array(sound).buffer], {type: 'sound/mp3'}))
+    })
 
     request.getFriends(this.user.id).subscribe(friends => {
       this.friends = friends
     })
-
   }
 
   select_chat(id: number){
@@ -46,11 +48,23 @@ export class MessengerComponent implements OnDestroy{
     }
     this.sub = this.socketService.listen_to_server(this.ev).subscribe((data) => {
       this.chat.messages.push(data)
-      //this.sound.play()
+      setTimeout(() => {
+        let scroll_bar = document.getElementsByClassName("scroll_bar").item(0)
+        //@ts-ignore
+        scroll_bar.scrollTop = Math.ceil(scroll_bar.scrollHeight - scroll_bar.clientHeight);
+      }, 0.1)
+      if(data.name != this.user.name) {
+        this.sound.play()
+      }
     })
     this.request.getChat(this.ev).subscribe((chat: Chat) => {
       this.chat = chat
       this.write_to = id
+      setTimeout(() => {
+        let scroll_bar = document.getElementsByClassName("scroll_bar").item(0)
+        //@ts-ignore
+        scroll_bar.scrollTop = Math.ceil(scroll_bar.scrollHeight - scroll_bar.clientHeight);
+      }, 0.1)
     })
   }
 
@@ -72,7 +86,7 @@ export class MessengerComponent implements OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.sub.unsubscribe()
+    if(this.sub) this.sub.unsubscribe()
   }
 
   protected readonly document = document;

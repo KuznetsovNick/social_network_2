@@ -36,6 +36,11 @@ export class RequestsService {
     return this.http.post(url, {id: id},{responseType: 'arraybuffer'})
   };
 
+  getSound(){
+    let url = "https://localhost:8443/send_sound"
+    return this.http.get(url, {responseType: 'arraybuffer'})
+  };
+
   getChat(chanel: string){
     return this.http.post<Chat>("https://localhost:8443/send_chat", {chanel: chanel})
   };

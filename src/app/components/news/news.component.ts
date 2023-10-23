@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {User} from "../../models/user";
 import {Router} from "@angular/router";
 import {RequestsService} from "../../services/requests.service";
@@ -11,10 +11,10 @@ import {Subscription} from "rxjs";
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.less']
 })
-export class NewsComponent {
+export class NewsComponent implements OnDestroy{
   user: User
   news: News[]
-  subs: Subscription[]
+  subs: Subscription[] = []
   evs:number[]
   constructor(private router: Router, private request: RequestsService,
               private socketService: SocketIoService) {
@@ -23,9 +23,9 @@ export class NewsComponent {
       this.user = JSON.parse(user)
     }
 
-    request.getNews(this.user.id).subscribe(news => {
+    this.subs.push(request.getNews(this.user.id).subscribe(news => {
       this.news = news
-    })
+    }))
 
     this.evs = []
     this.evs.push(this.user.id)
@@ -54,5 +54,11 @@ export class NewsComponent {
     this.socketService.emit_to_server(this.user.id.toString(), {id: this.user.id, news: news})
     //@ts-ignore
     document.getElementById("news").value = ""
+  }
+
+  ngOnDestroy(): void {
+    for(let i of this.subs){
+      i.unsubscribe()
+    }
   }
 }

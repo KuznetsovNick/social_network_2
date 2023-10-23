@@ -5,7 +5,8 @@ import {RequestsService} from "../../services/requests.service";
 
 @Component({
   selector: "app-entering",
-  templateUrl: "entering.component.html"
+  templateUrl: "entering.component.html",
+  styleUrls: ["entering.component.less"]
 })
 
 export class EnteringComponent {

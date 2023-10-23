@@ -1,6 +1,9 @@
-<button (click)="open_profile()">Profile</button>
-<button (click)="open_news()">News</button>
-<button (click)="open_friends()">Friends</button>
-<button (click)="open_messenger()">Messenger</button>
-<button [routerLink]="['']">Logout</button>
-<button *ngIf="user.role == 'admin'" (click)="document.location.href = 'https://localhost:8443'">Admin</button>
+<div id="menu" class="list">
+  <button class="menu_buttons hovers buttons" (click)="open_profile()">Profile</button>
+  <button class="menu_buttons hovers buttons" (click)="open_news()">News</button>
+  <button class="menu_buttons hovers buttons" (click)="open_friends()">Friends</button>
+  <button class="menu_buttons hovers buttons" (click)="open_messenger()">Messenger</button>
+  <button class="menu_buttons hovers buttons" [routerLink]="['']">Logout</button>
+  <button *ngIf="user.role == 'admin'" class="menu_buttons hovers buttons"
+          (click)="document.location.href = 'https://localhost:8443'">Admin</button>
+</div>

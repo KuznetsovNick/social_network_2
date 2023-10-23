@@ -1,16 +1,19 @@
 <div *ngIf="write_to">
-  <div *ngFor="let message of chat.messages">
-    {{JSON.stringify(message)}}
-<!--    <h3>{{message.name}}</h3>-->
-<!--    <p>{{message.message}}</p>-->
+  <div class="container scroll_bar">
+    <div *ngFor="let message of chat.messages">
+      {{message.name}}: {{message.message}}
+    </div>
   </div>
-  <input id="inp">
-  <button (click)="send_message()">send</button>
-  <button (click)="close_messenger()">Close</button>
+  <div id="write_msg" class="list">
+    <input id="inp" class="hovers buttons">
+    <button class="hovers buttons" (click)="send_message()">send</button>
+    <button class="hovers buttons" (click)="close_messenger()">Close</button>
+  </div>
 </div>
 
-<div *ngIf="!write_to">
-  <div *ngFor="let user of friends" (click)="select_chat(user.id)">
+<div *ngIf="!write_to" class="list">
+  <div class="buttons hovers" *ngFor="let user of friends" (click)="select_chat(user.id)">
     {{user.name}}
   </div>
+  <button class="buttons hovers" (click)="close_messenger()">close</button>
 </div>

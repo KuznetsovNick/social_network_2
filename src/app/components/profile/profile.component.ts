@@ -37,5 +37,6 @@ export class ProfileComponent {
   delete_img(){
     this.request.deleteImg(this.user.id).subscribe((data) => {})
     this.user.img = false
+    document.location.reload()
   }
 }

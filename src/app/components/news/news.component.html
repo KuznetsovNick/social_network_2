@@ -1,11 +1,13 @@
-<input id="news" placeholder="What's new?">
-<button (click)="add_news()">add news</button>
+<div id="input_area" class="list">
+  <input id="news" class="buttons hovers" placeholder="What's new?">
+  <button id="add_news" class="buttons hovers" (click)="add_news()">add news</button>
+</div>
 
-<div *ngFor="let n of news">
+<div *ngFor="let n of news" class="list">
   <h3>{{n.name}}</h3>
-  <div *ngFor="let i of n.posts">
+  <div *ngFor="let i of n.posts" style="margin: 0">
     <p>{{i}}</p>
   </div>
 </div>
 
-<button (click)="close_news()">Close</button>
+<button id="close_news" class="buttons hovers" (click)="close_news()">close</button>

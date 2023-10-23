@@ -1,8 +1,10 @@
-<img id="img">
-<h3>Hi, I'm {{user.name}}</h3>
-<p>{{user.bd}}</p>
-<p>{{user.email}}</p>
-<p>{{user.role}}</p>
-<p>{{user.status}}</p>
-<button (click)="delete_img()">delete image</button>
-<button (click)="close_profile()">Close</button>
+<div class="list">
+  <img id="img" alt="user image">
+  <h3>Hi, I'm {{user.name}}</h3>
+  <p>{{user.bd}}</p>
+  <p>{{user.email}}</p>
+  <p>{{user.role}}</p>
+  <p>{{user.status}}</p>
+  <button class="buttons hovers" (click)="delete_img()">delete image</button>
+  <button class="buttons hovers" (click)="close_profile()">close</button>
+</div>

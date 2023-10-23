@@ -6,7 +6,8 @@ import {Subscription} from "rxjs";
 
 @Component({
   selector: "app-menu",
-  templateUrl: "menu.component.html"
+  templateUrl: "menu.component.html",
+  styleUrls: ["menu.component.less"]
 })
 
 export class MenuComponent{

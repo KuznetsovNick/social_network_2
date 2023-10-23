@@ -1,5 +1,7 @@
-<div *ngFor="let user of friends">
-  {{user.name}}
-</div>
+<div class="list">
+  <div *ngFor="let user of friends">
+    {{user.name}}
+  </div>
 
-<button (click)="close_friends()">Close</button>
+  <button class="buttons hovers" (click)="close_friends()">Close</button>
+</div>

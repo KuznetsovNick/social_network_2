@@ -1,13 +1,13 @@
-<div *ngIf="!is_register">
-  <input id="enter_id" type="text" placeholder="enter your id here">
-  <button (click)="login()">Login</button>
-  <button (click)="is_register = true">Register</button>
+<div id="login" class="list" *ngIf="!is_register">
+  <input id="enter_id" class="buttons hovers" type="text" placeholder="enter your id here">
+  <button id="login_button" class="buttons hovers" (click)="login()">login</button>
+  <button id="register_button" class="buttons hovers" (click)="is_register = true">register</button>
 </div>
 
-<div *ngIf="is_register">
-  <input id="name"type="text" placeholder="name">
-  <input id="date" type="date">
-  <input id="email" type="email" placeholder="email">
-  <button (click)="register()">save</button>
-  <button (click)="is_register = false">close</button>
+<div id="register" class="list" *ngIf="is_register">
+  <input id="name" class="buttons hovers" type="text" placeholder="name">
+  <input id="date" class="buttons hovers" type="date">
+  <input id="email" class="buttons hovers" type="email" placeholder="email">
+  <button id="confirm_register" class="buttons hovers" (click)="register()">save</button>
+  <button id="close_register" class="buttons hovers" (click)="is_register = false">close</button>
 </div>
